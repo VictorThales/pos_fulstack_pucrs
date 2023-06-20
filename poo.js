@@ -43,4 +43,49 @@ function Android() {
     };
 }
 
-const android2 = new Android;
+const android2 = new Android();
+
+//prototype
+Object.getPrototypeOf(android2); 
+//Log -> {constructor: ƒ} Android() ...
+
+//create
+const android3 = Object.create(android2);
+
+Android.prototype.message = function () {
+    console.log("🤖 Hello human, i am C-3PO");
+};
+
+//next Android objects has a message method
+
+//Class
+
+class Human {
+    constructor(name, age) {
+        this.nome = nome;
+        this.age = age;
+    }
+    message() {
+        console.log("👦🏻 Hello android, i am " + this.nome)
+    }
+}
+
+const human1 = new Human("finn",12);
+
+//extends and polymorphism
+
+class Astronaut extends Human {
+    constructor(name, age, target, rocket){
+        super(name, age);
+        this.target = target;
+        this.rocket = rocket;
+    }
+    message() {
+      super.message();
+      console.log("and my rocket is "+ this.rocket);
+    };
+}
+
+const astronaut1 = new Astronaut("Simon","60","mars","falcon9");
+astronaut1.message();
+//Log -> 👦🏻 Hello android, i am Simon and my rocket is the falcon9 
