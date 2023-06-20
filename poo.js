@@ -1,3 +1,4 @@
+//factory
 function createAndroid (type, velocity, cpu, state) {
     return {
         type,
